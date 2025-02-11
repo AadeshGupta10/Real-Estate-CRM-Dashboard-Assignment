@@ -1,3 +1,5 @@
+import LeadSearch from "./LeadSearch"
+import PropertySearch from "./PropertySearch"
 import { Button } from "./ui/button"
 import { SidebarTrigger } from "./ui/sidebar"
 
@@ -11,6 +13,19 @@ const Heading = ({ heading }: { heading?: string }) => {
                     <div className="text-[1.3rem] font-semibold">
                         {heading}
                     </div>
+
+                    <div className="hidden md:block">
+                        {
+                            heading === "Leads" ?
+                                <LeadSearch />
+                                :
+                                heading === "Property" ?
+                                    <PropertySearch />
+                                    :
+                                    ""
+                        }
+                    </div>
+
                     <Button variant={"default"} className="cursor-pointer">
                         {
                             heading === "Leads" ?
